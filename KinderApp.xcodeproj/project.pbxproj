@@ -14,6 +14,15 @@
 		3E60B8392C43DF5100162C7D /* KinderAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60B8382C43DF5100162C7D /* KinderAppTests.swift */; };
 		3E60B8432C43DF5100162C7D /* KinderAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60B8422C43DF5100162C7D /* KinderAppUITests.swift */; };
 		3E60B8452C43DF5100162C7D /* KinderAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60B8442C43DF5100162C7D /* KinderAppUITestsLaunchTests.swift */; };
+		3E60B8542C43DFA700162C7D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60B8532C43DFA700162C7D /* LoginView.swift */; };
+		3E60B8562C43DFC000162C7D /* EmailTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60B8552C43DFC000162C7D /* EmailTextField.swift */; };
+		3E60B8582C43DFDD00162C7D /* PasswortTextFielt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60B8572C43DFDD00162C7D /* PasswortTextFielt.swift */; };
+		3E60B85A2C43DFF300162C7D /* SocialLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60B8592C43DFF300162C7D /* SocialLoginButton.swift */; };
+		3E60B85D2C442EC800162C7D /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60B85C2C442EC800162C7D /* UserData.swift */; };
+		3E60B8612C44342000162C7D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3E60B85F2C44342000162C7D /* Localizable.strings */; };
+		3E60B8672C44621700162C7D /* CalenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60B8662C44621700162C7D /* CalenderView.swift */; };
+		3E60B86B2C447AD500162C7D /* WeekStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60B86A2C447AD500162C7D /* WeekStore.swift */; };
+		3E60B86D2C447D6B00162C7D /* WeekValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60B86C2C447D6B00162C7D /* WeekValue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +53,16 @@
 		3E60B83E2C43DF5100162C7D /* KinderAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KinderAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E60B8422C43DF5100162C7D /* KinderAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KinderAppUITests.swift; sourceTree = "<group>"; };
 		3E60B8442C43DF5100162C7D /* KinderAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KinderAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3E60B8532C43DFA700162C7D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		3E60B8552C43DFC000162C7D /* EmailTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailTextField.swift; sourceTree = "<group>"; };
+		3E60B8572C43DFDD00162C7D /* PasswortTextFielt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswortTextFielt.swift; sourceTree = "<group>"; };
+		3E60B8592C43DFF300162C7D /* SocialLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLoginButton.swift; sourceTree = "<group>"; };
+		3E60B85C2C442EC800162C7D /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		3E60B8602C44342000162C7D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3E60B8632C44345D00162C7D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3E60B8662C44621700162C7D /* CalenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderView.swift; sourceTree = "<group>"; };
+		3E60B86A2C447AD500162C7D /* WeekStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekStore.swift; sourceTree = "<group>"; };
+		3E60B86C2C447D6B00162C7D /* WeekValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekValue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +115,9 @@
 			children = (
 				3E60B8272C43DF4F00162C7D /* KinderAppApp.swift */,
 				3E60B8292C43DF4F00162C7D /* ContentView.swift */,
-				3E60B82B2C43DF5100162C7D /* Assets.xcassets */,
+				3E60B85E2C4433D400162C7D /* Resource */,
+				3E60B85B2C442EA800162C7D /* Model */,
+				3E60B8512C43DF7A00162C7D /* View */,
 				3E60B82D2C43DF5100162C7D /* Preview Content */,
 			);
 			path = KinderApp;
@@ -125,6 +146,53 @@
 				3E60B8442C43DF5100162C7D /* KinderAppUITestsLaunchTests.swift */,
 			);
 			path = KinderAppUITests;
+			sourceTree = "<group>";
+		};
+		3E60B8512C43DF7A00162C7D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3E60B8652C4461F600162C7D /* CalenderView */,
+				3E60B8522C43DF8800162C7D /* LoginView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3E60B8522C43DF8800162C7D /* LoginView */ = {
+			isa = PBXGroup;
+			children = (
+				3E60B8532C43DFA700162C7D /* LoginView.swift */,
+				3E60B8552C43DFC000162C7D /* EmailTextField.swift */,
+				3E60B8572C43DFDD00162C7D /* PasswortTextFielt.swift */,
+				3E60B8592C43DFF300162C7D /* SocialLoginButton.swift */,
+			);
+			path = LoginView;
+			sourceTree = "<group>";
+		};
+		3E60B85B2C442EA800162C7D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3E60B85C2C442EC800162C7D /* UserData.swift */,
+				3E60B86C2C447D6B00162C7D /* WeekValue.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3E60B85E2C4433D400162C7D /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				3E60B82B2C43DF5100162C7D /* Assets.xcassets */,
+				3E60B85F2C44342000162C7D /* Localizable.strings */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		3E60B8652C4461F600162C7D /* CalenderView */ = {
+			isa = PBXGroup;
+			children = (
+				3E60B8662C44621700162C7D /* CalenderView.swift */,
+				3E60B86A2C447AD500162C7D /* WeekStore.swift */,
+			);
+			path = CalenderView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,6 +281,7 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
 			);
 			mainGroup = 3E60B81B2C43DF4F00162C7D;
 			productRefGroup = 3E60B8252C43DF4F00162C7D /* Products */;
@@ -232,6 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E60B82F2C43DF5100162C7D /* Preview Assets.xcassets in Resources */,
+				3E60B8612C44342000162C7D /* Localizable.strings in Resources */,
 				3E60B82C2C43DF5100162C7D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -257,7 +327,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E60B8562C43DFC000162C7D /* EmailTextField.swift in Sources */,
+				3E60B8542C43DFA700162C7D /* LoginView.swift in Sources */,
+				3E60B85D2C442EC800162C7D /* UserData.swift in Sources */,
+				3E60B86B2C447AD500162C7D /* WeekStore.swift in Sources */,
+				3E60B8582C43DFDD00162C7D /* PasswortTextFielt.swift in Sources */,
+				3E60B86D2C447D6B00162C7D /* WeekValue.swift in Sources */,
 				3E60B82A2C43DF4F00162C7D /* ContentView.swift in Sources */,
+				3E60B85A2C43DFF300162C7D /* SocialLoginButton.swift in Sources */,
+				3E60B8672C44621700162C7D /* CalenderView.swift in Sources */,
 				3E60B8282C43DF4F00162C7D /* KinderAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -293,6 +371,18 @@
 			targetProxy = 3E60B83F2C43DF5100162C7D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3E60B85F2C44342000162C7D /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3E60B8602C44342000162C7D /* en */,
+				3E60B8632C44345D00162C7D /* de */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		3E60B8462C43DF5100162C7D /* Debug */ = {
