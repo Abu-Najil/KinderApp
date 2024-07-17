@@ -21,7 +21,7 @@ struct EmailTextField: View {
             }
             .padding(.top, 16)
             .padding(.horizontal, 32)
-            
+       
             // Textfeld
             ZStack(alignment: .trailing) {
                 TextField("E-Mail", text: $email)
@@ -42,7 +42,7 @@ struct EmailTextField: View {
                         .padding(.trailing, 32)
                 }
             }
-           
+          
             
             // Fehlermeldung
             HStack {
@@ -53,6 +53,7 @@ struct EmailTextField: View {
             }
             .padding(.horizontal, 32)
             .opacity(0)
+         
         }
     }
 }

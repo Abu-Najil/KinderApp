@@ -38,6 +38,7 @@ struct LoginView: View {
                 
                 ZStack{
                     Divider()
+                        .background(.black)
                     
                     Text("oder")
                         .padding(.horizontal)

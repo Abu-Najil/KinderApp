@@ -112,8 +112,22 @@ struct CalenderView: View {
             }
             
             ScrollView{
+                VStack{
+                    Circle()
+                        .frame(width: 40)
+                    HStack{
+                        Divider()
+                            .background(.black)
+                            .bold()
+                    }
+                }
+                .frame(maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+                .padding(8)
+                .background(.regularMaterial)
                 
             }
+            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+            .padding()
             .background(.yellow)
         }
     }

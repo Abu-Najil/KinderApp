@@ -23,6 +23,9 @@
 		3E60B8672C44621700162C7D /* CalenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60B8662C44621700162C7D /* CalenderView.swift */; };
 		3E60B86B2C447AD500162C7D /* WeekStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60B86A2C447AD500162C7D /* WeekStore.swift */; };
 		3E60B86D2C447D6B00162C7D /* WeekValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60B86C2C447D6B00162C7D /* WeekValue.swift */; };
+		3E7B04352C4821B000606AED /* TestCalender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7B04342C4821B000606AED /* TestCalender.swift */; };
+		3E7B04372C4825F000606AED /* MyCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7B04362C4825F000606AED /* MyCalendar.swift */; };
+		3E7B04392C48264D00606AED /* DayPlanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7B04382C48264D00606AED /* DayPlanner.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +66,9 @@
 		3E60B8662C44621700162C7D /* CalenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderView.swift; sourceTree = "<group>"; };
 		3E60B86A2C447AD500162C7D /* WeekStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekStore.swift; sourceTree = "<group>"; };
 		3E60B86C2C447D6B00162C7D /* WeekValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekValue.swift; sourceTree = "<group>"; };
+		3E7B04342C4821B000606AED /* TestCalender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCalender.swift; sourceTree = "<group>"; };
+		3E7B04362C4825F000606AED /* MyCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCalendar.swift; sourceTree = "<group>"; };
+		3E7B04382C48264D00606AED /* DayPlanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPlanner.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +157,7 @@
 		3E60B8512C43DF7A00162C7D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3E7B043A2C48699300606AED /* TestCalender */,
 				3E60B8652C4461F600162C7D /* CalenderView */,
 				3E60B8522C43DF8800162C7D /* LoginView */,
 			);
@@ -173,6 +180,7 @@
 			children = (
 				3E60B85C2C442EC800162C7D /* UserData.swift */,
 				3E60B86C2C447D6B00162C7D /* WeekValue.swift */,
+				3E7B04362C4825F000606AED /* MyCalendar.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -191,8 +199,17 @@
 			children = (
 				3E60B8662C44621700162C7D /* CalenderView.swift */,
 				3E60B86A2C447AD500162C7D /* WeekStore.swift */,
+				3E7B04342C4821B000606AED /* TestCalender.swift */,
+				3E7B04382C48264D00606AED /* DayPlanner.swift */,
 			);
 			path = CalenderView;
+			sourceTree = "<group>";
+		};
+		3E7B043A2C48699300606AED /* TestCalender */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TestCalender;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,6 +351,9 @@
 				3E60B8582C43DFDD00162C7D /* PasswortTextFielt.swift in Sources */,
 				3E60B86D2C447D6B00162C7D /* WeekValue.swift in Sources */,
 				3E60B82A2C43DF4F00162C7D /* ContentView.swift in Sources */,
+				3E7B04392C48264D00606AED /* DayPlanner.swift in Sources */,
+				3E7B04372C4825F000606AED /* MyCalendar.swift in Sources */,
+				3E7B04352C4821B000606AED /* TestCalender.swift in Sources */,
 				3E60B85A2C43DFF300162C7D /* SocialLoginButton.swift in Sources */,
 				3E60B8672C44621700162C7D /* CalenderView.swift in Sources */,
 				3E60B8282C43DF4F00162C7D /* KinderAppApp.swift in Sources */,
