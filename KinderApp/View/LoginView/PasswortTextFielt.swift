@@ -15,6 +15,7 @@ struct PasswortTextFielt: View {
     
     var body: some View {
         VStack(spacing: 8) {
+            
             HStack {
                 Text("Passwort")
                     .font(.caption)
@@ -82,4 +83,3 @@ struct PasswortTextFielt: View {
     PasswortTextFielt(passwort: .constant(""), isVisibility: .constant(true))
         .padding()
 }
-

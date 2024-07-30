@@ -24,6 +24,7 @@ struct EmailTextField: View {
             // Textfeld
             ZStack(alignment: .trailing) {
                 TextField("E-Mail", text: $email)
+                    .keyboardType(.emailAddress)
                     .padding()
                     .background(.fill)
                     .clipShape(RoundedRectangle(cornerSize: CGSize(width: 14, height: 10)))

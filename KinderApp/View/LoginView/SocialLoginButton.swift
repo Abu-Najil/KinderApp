@@ -17,7 +17,6 @@ struct SocialLoginButton: View {
     var body: some View {
         
         VStack {
-            
             Button {
                 
             }label: {
@@ -41,14 +40,14 @@ struct SocialLoginButton: View {
         }
     }
 }
-    
-    #Preview {
-        VStack{
-            SocialLoginButton(logo: "appleLogo", textLabel: "mit Apple anmelden", backgroundcolor: .appleBackround, textColor: .white)
-            
-            SocialLoginButton(logo: "googleLogo", textLabel: "mit Google anmelden", backgroundcolor: .googleBackround, textColor: Color(.label))
-            
-            SocialLoginButton(logo: "facebookLogo", textLabel: "mit Facebook anmelden", backgroundcolor: .facebookBackround, textColor: .white)
-        }
-        .padding()
+
+#Preview {
+    VStack{
+        SocialLoginButton(logo: "appleLogo", textLabel: "mit Apple anmelden", backgroundcolor: .appleBackround, textColor: .white)
+        
+        SocialLoginButton(logo: "googleLogo", textLabel: "mit Google anmelden", backgroundcolor: .googleBackround, textColor: Color(.label))
+        
+        SocialLoginButton(logo: "facebookLogo", textLabel: "mit Facebook anmelden", backgroundcolor: .facebookBackround, textColor: .white)
     }
+    .padding()
+}

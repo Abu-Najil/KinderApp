@@ -31,14 +31,13 @@ struct LoginView: View {
             SocialLoginButton(logo: "googleLogo", textLabel: "mit Google anmelden", backgroundcolor: .googleBackround, textColor: Color(.label))
             
             SocialLoginButton(logo: "facebookLogo", textLabel: "mit Facebook anmelden", backgroundcolor: .facebookBackround, textColor: .white)
-            
         }
         .padding(.horizontal)
         .navigationTitle("Anmelden")
         .navigationBarTitleDisplayMode(.large)
         .toolbar{
             ToolbarItem(placement: .bottomBar) {
-                HStack{
+                HStack(spacing: 0){
                     Text("Du hast noch kein Konto?")
                     NavigationLink(destination: SIEmail()) {
                         Text("Registriren")

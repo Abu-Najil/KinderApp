@@ -36,11 +36,13 @@ struct WelcomView: View {
                             .padding(.horizontal)
                         Spacer().frame(height: 50)
                     }
+                    
                     Text("View2")
                     Text("View3")
                 }
                 .tabViewStyle(.page)
                 .indexViewStyle(.page(backgroundDisplayMode: .always))
+                
                 
                  NavigationLink( destination: SIEmail()){
                     Text("Registrieren")
@@ -55,7 +57,7 @@ struct WelcomView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .bottomBar) {
-                    HStack{
+                    HStack(spacing: 0){
                         Text("Noch kein Konto?")
                         NavigationLink(destination: LoginView()) {
                             Text("Anmelden")
