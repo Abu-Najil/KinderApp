@@ -24,6 +24,7 @@ class WeekStore : ObservableObject {
     @Published var previousWeek : [Date] = []
     
     // Initial append of weeks
+    
     init() {
         fetchCurrentWeek()
         fetchPreviousNextWeek()
@@ -105,6 +106,7 @@ class WeekStore : ObservableObject {
     }
     
     func fetchPreviousNextWeek(){
+        
         nextWeek.removeAll()
         
         let nextWeekToday = Calendar.current.date(byAdding: .day, value: 7, to: currentDate )!

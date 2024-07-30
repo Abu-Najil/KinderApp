@@ -14,66 +14,99 @@ struct LoginView: View {
     @State private var isVisebility = false
     
     var body: some View {
-        NavigationStack{
-            VStack(spacing: 0){
-                EmailTextField(email: $email)
-                
-                PasswortTextFielt(passwort: $passwort, isVisibility: $isVisebility)
-                
-                Button(LocalizedStringKey("Anmelden")){}
-                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
-                    .padding()
-                    .foregroundStyle(email.isEmpty || passwort.isEmpty ? Color(uiColor: .systemFill) : Color(uiColor: .tertiarySystemBackground))
-                    .background(email.isEmpty || passwort.isEmpty ? Color(uiColor: .quaternarySystemFill) : Color(uiColor: .systemBlue))
-                    .clipShape(RoundedRectangle(cornerSize: CGSize(width: 14, height: 10)))
-                    .padding()
-                    .disabled(email.isEmpty || passwort.isEmpty)
-                
-                Button("Passwort vergessen?"){
-                    // TODO: - Passwort vergessen
-                }
-                .font(.caption)
-                .bold()
-                .padding()
-                
-                ZStack{
-                    Divider()
-                        .background(.black)
-                    
-                    Text("oder")
-                        .padding(.horizontal)
-                        .background(.white)
-                        .font(.footnote)
-                }
-                .padding(.horizontal)
-                .padding(8)
-                .padding(.bottom, 8)
-                
-                SocialLoginButton(logo: "apple.logo", textLabel: "Mit Apple anmelden", backgroundcolor: .black, textColor: .white)
-                
-                SocialLoginButton(logo: "square.dashed", textLabel: "Mit Coogle anmelden", backgroundcolor: Color(uiColor: .systemFill), textColor: .black)
-                
-                SocialLoginButton(logo: "square.dashed", textLabel: "Mit Facebook anmelden", backgroundcolor: .blue, textColor: .white)
-                
-            }
-            .navigationTitle("Anmelden")
-            .toolbar{
-                ToolbarItem(placement: .bottomBar) {
-                    HStack{
-                        Text("Du hast noch kein Konto?")
-                        Button("Registriren"){
-                            
-                        }
+        
+        VStack(spacing: 16){
+            EmailTextField(email: $email)
+            
+            PasswortTextFielt(passwort: $passwort, isVisibility: $isVisebility)
+            
+            AnmeldeButton(email: $email, passwort: $passwort)
+            
+            PasswortVergessen()
+            
+            Trenner()
+            
+            SocialLoginButton(logo: "appleLogo", textLabel: "mit Apple anmelden", backgroundcolor: .appleBackround, textColor: .white)
+            
+            SocialLoginButton(logo: "googleLogo", textLabel: "mit Google anmelden", backgroundcolor: .googleBackround, textColor: Color(.label))
+            
+            SocialLoginButton(logo: "facebookLogo", textLabel: "mit Facebook anmelden", backgroundcolor: .facebookBackround, textColor: .white)
+            
+        }
+        .padding(.horizontal)
+        .navigationTitle("Anmelden")
+        .navigationBarTitleDisplayMode(.large)
+        .toolbar{
+            ToolbarItem(placement: .bottomBar) {
+                HStack{
+                    Text("Du hast noch kein Konto?")
+                    NavigationLink(destination: SIEmail()) {
+                        Text("Registriren")
                     }
-                    .font(.caption)
-                    .bold()
                 }
+                .font(.footnote)
+            }
+            ToolbarItem(placement: .topBarTrailing) {
+                NavigationLink(destination: WelcomView()) {
+                    Image(systemName: "multiply")
+                }
+                .buttonStyle(.bordered)
+                .buttonBorderShape(.circle)
             }
         }
     }
 }
 
+
 #Preview {
-    LoginView()
+    NavigationStack {
+        LoginView()
+    }
 }
 
+
+struct AnmeldeButton: View {
+    
+    @Binding var email : String
+    @Binding var passwort : String
+    
+    var body: some View {
+        Button {
+            
+        } label: {
+            Text("Anmelden")
+                .frame(maxWidth: .infinity)
+        }
+        .buttonStyle(.borderedProminent)
+        .controlSize(.large)
+        .buttonBorderShape(.roundedRectangle(radius: 14))
+        .disabled(email.isEmpty || passwort.isEmpty)
+    }
+}
+
+struct PasswortVergessen: View {
+    var body: some View {
+        Button("Passwort vergessen?"){
+            // TODO: - Passwort vergessen
+        }
+        .font(.caption)
+        .bold()
+        .padding(.top)
+    }
+}
+
+struct Trenner: View {
+    var body: some View {
+        ZStack{
+            Divider()
+                .background(Color(.label))
+            
+            Text("oder")
+                .padding(.horizontal)
+                .background(Color(.systemBackground))
+                .font(.footnote)
+            
+        }
+        .padding()
+    }
+}

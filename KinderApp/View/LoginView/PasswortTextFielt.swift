@@ -20,8 +20,7 @@ struct PasswortTextFielt: View {
                     .font(.caption)
                 Spacer()
             }
-            .padding(.top, 16)
-            .padding(.horizontal, 32)
+            .padding(.horizontal, 16)
             ZStack(alignment: .trailing){
                 
                 Group {
@@ -31,35 +30,37 @@ struct PasswortTextFielt: View {
                         SecureField("Passwort", text: $passwort)
                     }
                 }
-                .padding()
+                .padding(!isVisibility ? 17 : 16)
                 .background(.fill)
                 .clipShape(RoundedRectangle(cornerSize: CGSize(width: 14, height: 10)))
-                .padding(.horizontal)
                 
                 HStack {
                     if !passwort.isEmpty{
-                        Image(systemName: "multiply")
-                            .font(.footnote)
-                            .padding(6)
-                            .background(.fill)
-                            .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
-                            .onTapGesture {
-                                passwort = ""
-                                isVisibility.toggle()
-                            }
+                        Button{
+                            passwort = ""
+                            isVisibility = false
+                        }label: {
+                            Image(systemName: "multiply")
+                                .foregroundStyle(Color(.label))
+                        }
+                        .buttonStyle(.bordered)
+                        .controlSize(.small)
+                        .buttonBorderShape(.circle)
                     }
                     
-                    Image(systemName: isVisibility ? "eye.slash.fill" : "eye.fill")
-                        .foregroundStyle(passwort.isEmpty ? .gray : .black)
-                        .onTapGesture {
-                            withAnimation {
-                                isAnimating.toggle()
-                            }
-                            isVisibility.toggle()
+                    Button {
+                        withAnimation {
+                            isAnimating.toggle()
                         }
-                        .disabled(passwort.isEmpty ? true : false)
+                        isVisibility.toggle()
+                    }label: {
+                        Image(systemName: isVisibility ? "eye.slash.fill" : "eye.fill")
+                    }
+                    .tint(Color(.label))
+                    .contentTransition(.symbolEffect(.replace))
+                    .disabled(passwort.isEmpty ? true : false)
                 }
-                .padding(.trailing, 32)
+                .padding(.trailing, 16)
             }
             
             HStack {
@@ -68,13 +69,17 @@ struct PasswortTextFielt: View {
                     .foregroundStyle(.red)
                 Spacer()
             }
-            .padding(.horizontal, 32)
+            .padding(.horizontal, 16)
             .opacity(0)
         }
     }
 }
 
+
+
+
 #Preview {
-    PasswortTextFielt(passwort: .constant(""), isVisibility: .constant(false))
+    PasswortTextFielt(passwort: .constant(""), isVisibility: .constant(true))
+        .padding()
 }
 

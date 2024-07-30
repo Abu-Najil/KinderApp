@@ -12,15 +12,14 @@ struct EmailTextField: View {
     @Binding var email: String
     
     var body: some View {
-        VStack(spacing: 8) {
+        VStack(spacing: 8){
             // Label
             HStack {
                 Text("E-Mail")
                     .font(.caption)
                 Spacer()
             }
-            .padding(.top, 16)
-            .padding(.horizontal, 32)
+            .padding(.horizontal, 16)
        
             // Textfeld
             ZStack(alignment: .trailing) {
@@ -28,30 +27,31 @@ struct EmailTextField: View {
                     .padding()
                     .background(.fill)
                     .clipShape(RoundedRectangle(cornerSize: CGSize(width: 14, height: 10)))
-                    .padding(.horizontal)
                 
                 if !email.isEmpty {
-                    Image(systemName: "multiply")
-                        .font(.footnote)
-                        .padding(6)
-                        .background(.fill)
-                        .clipShape(Circle())
-                        .onTapGesture {
+                        Button{
                             email = ""
+                        }label: {
+                            Image(systemName: "multiply")
+                                .foregroundStyle(Color(.label))
                         }
-                        .padding(.trailing, 32)
+                        .buttonStyle(.bordered)
+                        .controlSize(.small)
+                        .buttonBorderShape(.circle)
+                        .padding(.trailing, 8)
                 }
             }
           
             
             // Fehlermeldung
+            // TODO: Logig für die fehlermeldung einbauen
             HStack {
                 Label("fehlermeldung", systemImage: "exclamationmark.circle.fill")
                     .font(.caption)
                     .foregroundColor(.red)
                 Spacer()
             }
-            .padding(.horizontal, 32)
+            .padding(.horizontal, 16)
             .opacity(0)
          
         }
@@ -60,4 +60,5 @@ struct EmailTextField: View {
 
 #Preview {
     EmailTextField(email: .constant(""))
+        .padding()
 }

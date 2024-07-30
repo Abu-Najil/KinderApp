@@ -15,24 +15,40 @@ struct SocialLoginButton: View {
     let textColor: Color
     
     var body: some View {
-        ZStack(alignment: .leading){
-            Image(systemName: logo)
-                .font(.title2)
-            Button(textLabel) {
+        
+        VStack {
+            
+            Button {
                 
+            }label: {
+                ZStack{
+                    HStack{
+                        Image(logo)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 20)
+                        Spacer()
+                    }
+                    Text(textLabel)
+                }
+                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+                .foregroundStyle(textColor)
             }
-            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+            .buttonStyle(.borderedProminent)
+            .buttonBorderShape(.roundedRectangle(radius: 14))
+            .controlSize(.extraLarge)
+            .tint(backgroundcolor)
         }
-        .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
-        .padding()
-        .foregroundStyle(textColor)
-        .background(backgroundcolor)
-        .clipShape(RoundedRectangle(cornerSize: CGSize(width: 14, height: 10)))
-        .padding(10)
     }
 }
-
-
-#Preview {
-    SocialLoginButton(logo: "apple.logo", textLabel: "mit Apple anmelden", backgroundcolor: .black, textColor: .white)
-}
+    
+    #Preview {
+        VStack{
+            SocialLoginButton(logo: "appleLogo", textLabel: "mit Apple anmelden", backgroundcolor: .appleBackround, textColor: .white)
+            
+            SocialLoginButton(logo: "googleLogo", textLabel: "mit Google anmelden", backgroundcolor: .googleBackround, textColor: Color(.label))
+            
+            SocialLoginButton(logo: "facebookLogo", textLabel: "mit Facebook anmelden", backgroundcolor: .facebookBackround, textColor: .white)
+        }
+        .padding()
+    }

@@ -27,14 +27,14 @@ struct TestCalender: View {
                         Image(systemName: "tray.fill")
                         Image(systemName: "gear")
                     }
-                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                    .padding(4)
+                    
                 }
                 .padding()
                 
                 SwipeableStack(dayPlanner.startDateOfWeeksInAYear(), jumpTo: mondayOfTheCurrentDate) { (date, pos) in
                     WeekView(of: date, viewPosition: pos)
                 }
-                
                 .frame(maxHeight: 60)
                 
                 SwipeableStack([1, 2, 3], jumpTo: 2) { (_, _) in
@@ -154,17 +154,19 @@ struct WeekView: View {
             ForEach(datesInAWeek.indices, id: \.self){ i in
                 let d = datesInAWeek[i]
                 VStack{
-                    Text(week[i])
-                        .padding(.bottom, 5)
-                    Text(d.dayNum())
-                        .bold()
-                        .foregroundStyle(dayplaner.isCurrent(d) ? .white : .black)
+                    VStack{
+                        Text(week[i])
+                            .padding(.bottom, 5)
+                        Text(d.dayNum())
+                            .bold()
+                    }
+                    .foregroundStyle(dayplaner.isCurrent(d) ? .white : .black)
                         .background(
                             ZStack{
                                 if dayplaner.isCurrent(d) {
-                                    Circle()
+                                    RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
                                         .fill(.primary)
-                                        .frame(width: 30, height: 30)
+                                        .frame(width: 35, height: 60)
                                 }
                             }
                         )
@@ -184,7 +186,6 @@ struct WeekView: View {
         }
     }
 }
-
 
 struct CreateButton: View {
     @State private var isPresented = false
@@ -208,12 +209,11 @@ struct CreateButton: View {
     }
 }
 
-
 struct DayView: View {
     @EnvironmentObject var dayplanner: DayPlanner
     var body: some View {
         ZStack(alignment: .topLeading) {
-            RoundedRectangle (cornerRadius: 25)
+            RoundedRectangle (cornerRadius: 0)
                 . fill(Color.yellow)
             .ignoresSafeArea()
             

@@ -9,3 +9,31 @@
 "Wilkommen" = "Welcome!";
 
 "Anmelden" = "Register";
+
+//// MARK: Welcom View
+//...
+//
+//// MARK: Login View
+//...
+//
+//// MARK: Singin View
+//
+////1. Email View
+////...
+////2. ID Code View
+////...
+////3. Name View
+////...
+////4. BDay View
+////...
+////5. Passwort View
+////...
+//
+//// MARK: Calendar View
+//
+////1. Calendar View
+////...
+////2. Sheed View
+////...
+//
+//// MARK: Profil View

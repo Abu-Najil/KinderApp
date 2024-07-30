@@ -7,32 +7,114 @@
 
 
 import SwiftUI
+import EventKitUI
 
 struct KalenderDesigVorlage: View {
     
     @State private var kalenderSheed = false
-
+    @State var child = Date()
+    
     var body: some View {
+        
         NavigationStack {
-            ScrollView {
-                
-               // TODO: Restlicher Inhalt vom Kalender einfügen
+            VStack {
+                // MARK: Ganzägige einträge -----
+                HStack(alignment: .top){
+                    Text("Ganztägig")
+                        .font(.footnote)
+                    
+                    VStack(spacing: 4) {
+                        Capsule()
+                            .frame(maxWidth: 50, maxHeight: 14)
+                        Capsule()
+                            .frame(maxWidth: 50, maxHeight: 14)
+                    }
+                    VStack(spacing: 4) {
+                        Capsule()
+                            .frame(maxWidth: 50, maxHeight: 14)
+                        Capsule()
+                            .frame(maxWidth: 50, maxHeight: 14)
+                    }
+                    Capsule()
+                        .frame(maxWidth: 50, maxHeight: 14)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.horizontal)
+                // MARK: Kalenderinhalt -----
+                ScrollView{
+                    ZStack{
+                        VStack{
+                            ForEach(01..<24) {time in
+                                HStack{
+                                    Text("\(time):00")
+                                        .font(.footnote)
+                                        .padding(6)
+                                    VStack {
+                                        Divider()
+                                    }
+                                }
+                            }
+                        }
+                        .overlay(alignment: .trailing){
+                            Capsule()
+                                .frame(maxWidth: 70, maxHeight: .infinity)
+                                .foregroundStyle(.ultraThinMaterial)
+                                .overlay(alignment: .top) {
+                                    
+                                    VStack {
+                                        ZStack{
+                                            Circle()
+                                                .padding(6)
+                                            Image(systemName: "deskclock.fill")
+                                                .foregroundStyle(.white)
+                                        }
+                                        HStack {
+                                            Divider()
+                                            .frame(minHeight: 1)                                    }
+                                    }
+                                    
+                                }
+                        }
+                        // MARK: Aktuelle Zeitanzeige -----
+                        HStack(spacing: 0){
+                            Text("12:00")
+                                .foregroundStyle(.white)
+                                .font(.footnote)
+                                .padding(2)
+                                .padding(.horizontal, 6)
+                                .background(.red)
+                                .clipShape(RoundedRectangle(cornerSize: CGSize(width: 10, height: 10)))
+                            VStack{
+                                Divider()
+                                    .frame(minHeight: 1)
+                                    .background(.red)
+                                
+                            }
+                            Circle()
+                                .frame(width: 8)
+                                .foregroundStyle(.red)
+                        }
+                    }
+                    .padding()
+                }
                 
             }
-          
-// MARK: Toolbar -----
+            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+            
+            
+            // MARK: Toolbar -----
             
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                        Button{
-                            
-                        }label: {
-                            HStack{
-                                Text("Oktober 2024")
-                                Image(systemName: "chevron.right")
-                                    .font(.footnote)
-                            }
+                    Button{
+                        
+                    }label: {
+                        HStack{
+                            Text("Oktober 2024")
+                            Image(systemName: "chevron.right")
+                                .font(.footnote)
                         }
+                    }
                 }
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -65,10 +147,10 @@ struct KalenderDesigVorlage: View {
                         Image(systemName: "plus")
                     }
                 }
-            
+                
             }
             
-// MARK: Kalender -----
+            // MARK: Kalender -----
             
             .safeAreaInset(edge: .top , alignment: .trailing , spacing: nil) {
                 HStack {
@@ -107,10 +189,11 @@ struct KalenderDesigVorlage: View {
                         Text("03")
                             .font(/*@START_MENU_TOKEN@*/.subheadline/*@END_MENU_TOKEN@*/)
                     }
+                    .foregroundStyle(.red)
                     .padding(6)
                     .cornerRadius(12)
                     
-                
+                    
                     Spacer()
                     
                     VStack{
@@ -133,6 +216,8 @@ struct KalenderDesigVorlage: View {
                             .font(/*@START_MENU_TOKEN@*/.subheadline/*@END_MENU_TOKEN@*/)
                     }
                     .padding(6)
+                    .background(.black)
+                    .foregroundStyle(.white)
                     .cornerRadius(12)
                     
                     Spacer()
@@ -167,7 +252,7 @@ struct KalenderDesigVorlage: View {
                 .background(.regularMaterial)
             }
             
-// MARK: Sheed -----
+            // MARK: Sheed -----
             
             .sheet(isPresented: $kalenderSheed) {
                 CalenderSheed()
