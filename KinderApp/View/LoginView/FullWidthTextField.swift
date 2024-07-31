@@ -7,15 +7,18 @@
 
 import SwiftUI
 
-struct EmailTextField: View {
+struct FullWidthTextField: View {
     
-    @Binding var email: String
+    var title : String
+    var placeholder : String
+    
+    @Binding var text: String
     
     var body: some View {
         VStack(spacing: 8){
             // Label
             HStack {
-                Text("E-Mail")
+                Text(title)
                     .font(.caption)
                 Spacer()
             }
@@ -23,15 +26,15 @@ struct EmailTextField: View {
        
             // Textfeld
             ZStack(alignment: .trailing) {
-                TextField("E-Mail", text: $email)
+                TextField(placeholder, text: $text)
                     .keyboardType(.emailAddress)
                     .padding()
                     .background(.fill)
                     .clipShape(RoundedRectangle(cornerSize: CGSize(width: 14, height: 10)))
                 
-                if !email.isEmpty {
+                if !text.isEmpty {
                         Button{
-                            email = ""
+                            text = ""
                         }label: {
                             Image(systemName: "multiply")
                                 .foregroundStyle(Color(.label))
@@ -60,6 +63,6 @@ struct EmailTextField: View {
 }
 
 #Preview {
-    EmailTextField(email: .constant(""))
+    FullWidthTextField(title: "Titel", placeholder: "Platzhalter", text: .constant(""))
         .padding()
 }

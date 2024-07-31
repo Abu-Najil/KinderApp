@@ -16,7 +16,7 @@ struct LoginView: View {
     var body: some View {
         GeometryReader { p in
             VStack(spacing: 16){
-                EmailTextField(email: $email)
+                FullWidthTextField(title: "E-Mail", placeholder: "E-Mail", text: $email)
                 
                 PasswortTextFielt(passwort: $passwort, isVisibility: $isVisebility)
                 
