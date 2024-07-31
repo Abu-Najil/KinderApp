@@ -13,9 +13,7 @@ struct SIEmail: View {
     @State private var gaugeValue = 0.0
     
     var body: some View {
-        
-        VStack(spacing: 0) {
-            
+        GeometryReader { p in
             VStack(spacing: 16){
                 
                 Gauge(value: gaugeValue, in: 0...5){}
@@ -45,6 +43,7 @@ struct SIEmail: View {
                     ZStack(alignment: .trailing) {
                         TextField("E-Mail", text: $email)
                             .padding()
+                            .keyboardType(.emailAddress)
                             .background(.fill)
                             .clipShape(RoundedRectangle(cornerSize: CGSize(width: 14, height: 10)))
                         
@@ -76,10 +75,8 @@ struct SIEmail: View {
                     
                 }
                 .padding(.top)
-
-                Button {
-                    
-                } label: {
+                
+                NavigationLink(destination: SICode()) {
                     Text("Weiter")
                         .frame(maxWidth: .infinity)
                 }
@@ -96,34 +93,32 @@ struct SIEmail: View {
                 
                 SocialLoginButton(logo: "facebookLogo", textLabel: "mit Facebook registrieren", backgroundcolor: .facebookBackround, textColor: .white)
                 
-                
                 //Spacer().frame(height: 0)
             }
-        }
-        .padding(.horizontal)
-        .navigationBarTitleDisplayMode(.large)
-        .toolbar{
-            ToolbarItem(placement: .bottomBar) {
-                HStack(spacing: 0){
-                    Text("Hast du bereits ein Konto?")
-                    NavigationLink(destination: LoginView()){
-                        Text("Anmelden")
+            .padding(.horizontal)
+            .navigationBarTitleDisplayMode(.large)
+            .toolbar{
+                ToolbarItem(placement: .bottomBar) {
+                    HStack(spacing: 0){
+                        Text("Hast du bereits ein Konto?")
+                        NavigationLink(destination: LoginView()){
+                            Text("Anmelden")
+                        }
                     }
+                    .font(.footnote)
                 }
-                .font(.footnote)
-            }
-            
-            ToolbarItem(placement: .automatic) {
-                Button("Abbrechen"){
-                    
+                
+                ToolbarItem(placement: .automatic) {
+                    Button("Abbrechen"){
+                        
+                    }
+                    .buttonStyle(.bordered)
+                    .controlSize(.mini )
                 }
-                .buttonStyle(.bordered)
-                .controlSize(.mini )
             }
+            .navigationTitle("Registrieren")
         }
-        .navigationTitle("Registrieren")
-        //.toolbarTitleDisplayMode(.inlineLarge)
-        
+        .ignoresSafeArea(.keyboard)
     }
 }
 
@@ -132,3 +127,5 @@ struct SIEmail: View {
         SIEmail()
     }
 }
+
+

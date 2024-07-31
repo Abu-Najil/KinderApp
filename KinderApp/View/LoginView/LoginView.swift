@@ -14,45 +14,47 @@ struct LoginView: View {
     @State private var isVisebility = false
     
     var body: some View {
-        
-        VStack(spacing: 16){
-            EmailTextField(email: $email)
-            
-            PasswortTextFielt(passwort: $passwort, isVisibility: $isVisebility)
-            
-            AnmeldeButton(email: $email, passwort: $passwort)
-            
-            PasswortVergessen()
-            
-            Trenner()
-            
-            SocialLoginButton(logo: "appleLogo", textLabel: "mit Apple anmelden", backgroundcolor: .appleBackround, textColor: .white)
-            
-            SocialLoginButton(logo: "googleLogo", textLabel: "mit Google anmelden", backgroundcolor: .googleBackround, textColor: Color(.label))
-            
-            SocialLoginButton(logo: "facebookLogo", textLabel: "mit Facebook anmelden", backgroundcolor: .facebookBackround, textColor: .white)
-        }
-        .padding(.horizontal)
-        .navigationTitle("Anmelden")
-        .navigationBarTitleDisplayMode(.large)
-        .toolbar{
-            ToolbarItem(placement: .bottomBar) {
-                HStack(spacing: 0){
-                    Text("Du hast noch kein Konto?")
-                    NavigationLink(destination: SIEmail()) {
-                        Text("Registriren")
+        GeometryReader { p in
+            VStack(spacing: 16){
+                EmailTextField(email: $email)
+                
+                PasswortTextFielt(passwort: $passwort, isVisibility: $isVisebility)
+                
+                AnmeldeButton(email: $email, passwort: $passwort)
+                
+                PasswortVergessen()
+                
+                Trenner()
+                
+                SocialLoginButton(logo: "appleLogo", textLabel: "mit Apple anmelden", backgroundcolor: .appleBackround, textColor: .white)
+                
+                SocialLoginButton(logo: "googleLogo", textLabel: "mit Google anmelden", backgroundcolor: .googleBackround, textColor: Color(.label))
+                
+                SocialLoginButton(logo: "facebookLogo", textLabel: "mit Facebook anmelden", backgroundcolor: .facebookBackround, textColor: .white)
+            }
+            .padding(.horizontal)
+            .navigationTitle("Anmelden")
+            .navigationBarTitleDisplayMode(.large)
+            .toolbar{
+                ToolbarItem(placement: .bottomBar) {
+                    HStack(spacing: 0){
+                        Text("Du hast noch kein Konto?")
+                        NavigationLink(destination: SIEmail()) {
+                            Text("Registriren")
+                        }
                     }
+                    .font(.footnote)
                 }
-                .font(.footnote)
-            }
-            ToolbarItem(placement: .topBarTrailing) {
-                NavigationLink(destination: WelcomView()) {
-                    Image(systemName: "multiply")
+                ToolbarItem(placement: .topBarTrailing) {
+                    NavigationLink(destination: WelcomView()) {
+                        Image(systemName: "multiply")
+                    }
+                    .buttonStyle(.bordered)
+                    .buttonBorderShape(.circle)
                 }
-                .buttonStyle(.bordered)
-                .buttonBorderShape(.circle)
             }
         }
+        .ignoresSafeArea(.keyboard)
     }
 }
 

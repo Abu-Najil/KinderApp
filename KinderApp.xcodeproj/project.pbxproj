@@ -32,6 +32,7 @@
 		3E7B044D2C49CC1400606AED /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7B044C2C49CC1400606AED /* CreateView.swift */; };
 		3E7B044F2C4A840200606AED /* MyPlanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7B044E2C4A840200606AED /* MyPlanner.swift */; };
 		3E8F88F72C56FA3A000EDF6C /* SIEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8F88F62C56FA3A000EDF6C /* SIEmail.swift */; };
+		3E8F88FD2C59B0C8000EDF6C /* SICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8F88FC2C59B0C8000EDF6C /* SICode.swift */; };
 		3ECC27FF2C52769200DB2801 /* CustomWeekHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECC27FE2C52769200DB2801 /* CustomWeekHeader.swift */; };
 		3ECC28092C559FBC00DB2801 /* WelcomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECC28082C559FBC00DB2801 /* WelcomView.swift */; };
 /* End PBXBuildFile section */
@@ -83,6 +84,7 @@
 		3E7B044C2C49CC1400606AED /* CreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateView.swift; sourceTree = "<group>"; };
 		3E7B044E2C4A840200606AED /* MyPlanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlanner.swift; sourceTree = "<group>"; };
 		3E8F88F62C56FA3A000EDF6C /* SIEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SIEmail.swift; sourceTree = "<group>"; };
+		3E8F88FC2C59B0C8000EDF6C /* SICode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SICode.swift; sourceTree = "<group>"; };
 		3ECC27FE2C52769200DB2801 /* CustomWeekHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomWeekHeader.swift; sourceTree = "<group>"; };
 		3ECC28082C559FBC00DB2801 /* WelcomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -240,6 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				3E8F88F62C56FA3A000EDF6C /* SIEmail.swift */,
+				3E8F88FC2C59B0C8000EDF6C /* SICode.swift */,
 			);
 			path = SingInView;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 			files = (
 				3E60B8562C43DFC000162C7D /* EmailTextField.swift in Sources */,
 				3E60B8542C43DFA700162C7D /* LoginView.swift in Sources */,
+				3E8F88FD2C59B0C8000EDF6C /* SICode.swift in Sources */,
 				3E60B85D2C442EC800162C7D /* UserData.swift in Sources */,
 				3E8F88F72C56FA3A000EDF6C /* SIEmail.swift in Sources */,
 				3E7B044F2C4A840200606AED /* MyPlanner.swift in Sources */,
