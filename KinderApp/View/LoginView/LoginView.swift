@@ -14,47 +14,73 @@ struct LoginView: View {
     @State private var isVisebility = false
     
     var body: some View {
-        GeometryReader { p in
+        ScrollView {
             VStack(spacing: 16){
-                FullWidthTextField(title: "E-Mail", placeholder: "E-Mail", text: $email)
                 
-                PasswortTextFielt(passwort: $passwort, isVisibility: $isVisebility)
+                FullWidthTextField(
+                    title: "E-Mail",
+                    placeholder: "E-Mail",
+                    text: $email)
+                .padding(.top)
                 
-                AnmeldeButton(email: $email, passwort: $passwort)
+                PasswortTextFielt(
+                    passwort: $passwort,
+                    isVisibility: $isVisebility)
                 
-                PasswortVergessen()
-                
-                Trenner()
-                
-                SocialLoginButton(logo: "appleLogo", textLabel: "mit Apple anmelden", backgroundcolor: .appleBackround, textColor: .white)
-                
-                SocialLoginButton(logo: "googleLogo", textLabel: "mit Google anmelden", backgroundcolor: .googleBackround, textColor: Color(.label))
-                
-                SocialLoginButton(logo: "facebookLogo", textLabel: "mit Facebook anmelden", backgroundcolor: .facebookBackround, textColor: .white)
-            }
-            .padding(.horizontal)
-            .navigationTitle("Anmelden")
-            .navigationBarTitleDisplayMode(.large)
-            .toolbar{
-                ToolbarItem(placement: .bottomBar) {
-                    HStack(spacing: 0){
-                        Text("Du hast noch kein Konto?")
-                        NavigationLink(destination: SIEmail()) {
-                            Text("Registriren")
-                        }
+                FullWidthButton(
+                    buttonText: "Anmelden") {
+                        // TODO: Überprüft die logindaten. Nach übereinstimmung zur HauptView der App Navigiren
                     }
-                    .font(.footnote)
-                }
-                ToolbarItem(placement: .topBarTrailing) {
-                    NavigationLink(destination: WelcomView()) {
-                        Image(systemName: "multiply")
+                    .disabled(email.isEmpty || passwort.isEmpty)
+                
+                PasswortVergessen(
+                    buttonText: "Passwort vergessen"){
+                        // TODO: Weiterleitung zum Passwortvergessen
                     }
-                    .buttonStyle(.bordered)
-                    .buttonBorderShape(.circle)
-                }
+                
+                OptionSeparator()
+                
+                SocialLoginButton(
+                    logo: "appleLogo",
+                    textLabel: "mit Apple anmelden",
+                    backgroundcolor: .appleBackround,
+                    textColor: .white)
+                
+                SocialLoginButton(
+                    logo: "googleLogo",
+                    textLabel: "mit Google anmelden",
+                    backgroundcolor: .googleBackround,
+                    textColor: Color(.label))
+                
+                SocialLoginButton(
+                    logo: "facebookLogo",
+                    textLabel: "mit Facebook anmelden",
+                    backgroundcolor: .facebookBackround,
+                    textColor: .white)
             }
         }
-        .ignoresSafeArea(.keyboard)
+        .padding(.horizontal)
+        .navigationTitle("Anmelden")
+        .navigationBarTitleDisplayMode(.large)
+        .toolbar{
+            ToolbarItem(placement: .bottomBar) {
+                HStack(spacing: 0){
+                    Text("Du hast noch kein Konto?")
+                    NavigationLink(destination: RegistrierenView()) {
+                        Text("Registriren")
+                    }
+                }
+                .font(.footnote)
+            }
+            ToolbarItem(placement: .topBarTrailing) {
+                NavigationLink(destination: WelcomView()) {
+                    Image(systemName: "multiply")
+                }
+                .buttonStyle(.bordered)
+                .buttonBorderShape(.circle)
+            }
+        }
+        .scrollDisabled(true)
     }
 }
 
@@ -66,48 +92,21 @@ struct LoginView: View {
 }
 
 
-struct AnmeldeButton: View {
-    
-    @Binding var email : String
-    @Binding var passwort : String
-    
-    var body: some View {
-        Button {
-            
-        } label: {
-            Text("Anmelden")
-                .frame(maxWidth: .infinity)
-        }
-        .buttonStyle(.borderedProminent)
-        .controlSize(.large)
-        .buttonBorderShape(.roundedRectangle(radius: 14))
-        .disabled(email.isEmpty || passwort.isEmpty)
-    }
-}
-
 struct PasswortVergessen: View {
+    
+    var buttonText : String
+    var action : () -> Void
+    
     var body: some View {
-        Button("Passwort vergessen?"){
-            // TODO: - Passwort vergessen
+        Button(action: action){
+            Text(buttonText)
+                .font(.subheadline)
+                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
         }
-        .font(.caption)
-        .bold()
         .padding(.top)
+        .buttonBorderShape(.roundedRectangle(radius: 14))
     }
 }
 
-struct Trenner: View {
-    var body: some View {
-        ZStack{
-            Divider()
-                .background(Color(.label))
-            
-            Text("oder")
-                .padding(.horizontal)
-                .background(Color(.systemBackground))
-                .font(.footnote)
-            
-        }
-        .padding()
-    }
-}
+
+

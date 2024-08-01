@@ -1,37 +1,46 @@
 //
-//  EmailTextFielt.swift
+//  FullWidthTextFieldAndToggle.swift
 //  KinderApp
 //
-//  Created by Aldin Kolic on 14.07.24.
+//  Created by Aldin Kolic on 31.07.24.
 //
 
 import SwiftUI
 
-struct FullWidthTextField: View {
+struct FullWidthTextFieldAndToggle: View {
     
     var title : String
     var placeholder : String
     
     @Binding var text: String
-    
+    @Binding var toggleText: String
+    @Binding var toggleIsOn: Bool
     var body: some View {
         VStack(spacing: 8){
-            // Label
             HStack {
+                // MARK: Label / Title über dem Textfeld
                 Text(title)
                     .font(.caption)
-                Spacer()
+                    .frame(maxWidth: .infinity, alignment: .leading)
             }
             .padding(.horizontal, 16)
        
-            // Textfeld
             ZStack(alignment: .trailing) {
-                TextField(placeholder, text: $text)
-                    .keyboardType(.emailAddress)
-                    .padding()
-                    .background(.fill)
-                    .clipShape(RoundedRectangle(cornerSize: CGSize(width: 14, height: 10)))
+                HStack {
+                    
+                    Toggle(toggleText, isOn: $toggleIsOn)
+                        .toggleStyle(.button)
+                        .tint(Color(.label))
+                    
+                    // MARK: Textfeld und Platzhalter
+                    TextField(placeholder, text: $text)
+                        .keyboardType(.emailAddress)
+                }
+                .padding(10)
+                .background(.fill)
+                .clipShape(RoundedRectangle(cornerSize: CGSize(width: 14, height: 10)))
                 
+                // MARK: Button um den text zu Löschen
                 if !text.isEmpty {
                         Button{
                             text = ""
@@ -46,14 +55,13 @@ struct FullWidthTextField: View {
                 }
             }
           
-            
-            // Fehlermeldung
             // TODO: Logig für die fehlermeldung einbauen
             HStack {
+                // MARK: Fehlermeldung
                 Label("fehlermeldung", systemImage: "exclamationmark.circle.fill")
                     .font(.caption)
                     .foregroundColor(.red)
-                Spacer()
+                    .frame(maxWidth: .infinity, alignment: .leading)
             }
             .padding(.horizontal, 16)
             .opacity(0)
@@ -63,6 +71,6 @@ struct FullWidthTextField: View {
 }
 
 #Preview {
-    FullWidthTextField(title: "Titel", placeholder: "Platzhalter", text: .constant(""))
+    FullWidthTextFieldAndToggle(title: "Titel", placeholder: "Platzhalter", text: .constant(""), toggleText: .constant("Text"), toggleIsOn: .constant(false))
         .padding()
 }

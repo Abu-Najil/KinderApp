@@ -27,6 +27,7 @@ struct WelcomView: View {
                             }
                                 
                         }
+                        
                         Text("Behalte die Übersicht")
                             .font(.title2)
                             .bold()
@@ -43,8 +44,7 @@ struct WelcomView: View {
                 .tabViewStyle(.page)
                 .indexViewStyle(.page(backgroundDisplayMode: .always))
                 
-                
-                 NavigationLink( destination: SIEmail()){
+                 NavigationLink( destination: RegistrierenView()){
                     Text("Registrieren")
                         .frame(maxWidth: .infinity)
                 }

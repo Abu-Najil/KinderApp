@@ -34,6 +34,11 @@
 		3E8F88F72C56FA3A000EDF6C /* SIEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8F88F62C56FA3A000EDF6C /* SIEmail.swift */; };
 		3E8F88FD2C59B0C8000EDF6C /* SICode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8F88FC2C59B0C8000EDF6C /* SICode.swift */; };
 		3E8F88FF2C59D9CF000EDF6C /* SIPersonID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8F88FE2C59D9CF000EDF6C /* SIPersonID.swift */; };
+		3E8F89082C5ACA94000EDF6C /* DescriptionWithTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8F89072C5ACA94000EDF6C /* DescriptionWithTitle.swift */; };
+		3E8F890A2C5ACB04000EDF6C /* FullWidthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8F89092C5ACB04000EDF6C /* FullWidthButton.swift */; };
+		3E8F890C2C5AD2E6000EDF6C /* OptionSeparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8F890B2C5AD2E6000EDF6C /* OptionSeparator.swift */; };
+		3E8F890E2C5AE7AB000EDF6C /* FullWidthTextFieldAndToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8F890D2C5AE7AB000EDF6C /* FullWidthTextFieldAndToggle.swift */; };
+		3E8F89102C5AF5A6000EDF6C /* RegistrierenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8F890F2C5AF5A6000EDF6C /* RegistrierenView.swift */; };
 		3ECC27FF2C52769200DB2801 /* CustomWeekHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECC27FE2C52769200DB2801 /* CustomWeekHeader.swift */; };
 		3ECC28092C559FBC00DB2801 /* WelcomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECC28082C559FBC00DB2801 /* WelcomView.swift */; };
 /* End PBXBuildFile section */
@@ -87,6 +92,11 @@
 		3E8F88F62C56FA3A000EDF6C /* SIEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SIEmail.swift; sourceTree = "<group>"; };
 		3E8F88FC2C59B0C8000EDF6C /* SICode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SICode.swift; sourceTree = "<group>"; };
 		3E8F88FE2C59D9CF000EDF6C /* SIPersonID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SIPersonID.swift; sourceTree = "<group>"; };
+		3E8F89072C5ACA94000EDF6C /* DescriptionWithTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionWithTitle.swift; sourceTree = "<group>"; };
+		3E8F89092C5ACB04000EDF6C /* FullWidthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullWidthButton.swift; sourceTree = "<group>"; };
+		3E8F890B2C5AD2E6000EDF6C /* OptionSeparator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionSeparator.swift; sourceTree = "<group>"; };
+		3E8F890D2C5AE7AB000EDF6C /* FullWidthTextFieldAndToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullWidthTextFieldAndToggle.swift; sourceTree = "<group>"; };
+		3E8F890F2C5AF5A6000EDF6C /* RegistrierenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrierenView.swift; sourceTree = "<group>"; };
 		3ECC27FE2C52769200DB2801 /* CustomWeekHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomWeekHeader.swift; sourceTree = "<group>"; };
 		3ECC28082C559FBC00DB2801 /* WelcomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -144,6 +154,7 @@
 				3E60B85E2C4433D400162C7D /* Resource */,
 				3E60B85B2C442EA800162C7D /* Model */,
 				3E60B8512C43DF7A00162C7D /* View */,
+				3E8F89062C5AC61E000EDF6C /* Componente */,
 				3E60B82D2C43DF5100162C7D /* Preview Content */,
 			);
 			path = KinderApp;
@@ -190,9 +201,6 @@
 			isa = PBXGroup;
 			children = (
 				3E60B8532C43DFA700162C7D /* LoginView.swift */,
-				3E60B8552C43DFC000162C7D /* FullWidthTextField.swift */,
-				3E60B8572C43DFDD00162C7D /* PasswortTextFielt.swift */,
-				3E60B8592C43DFF300162C7D /* SocialLoginButton.swift */,
 			);
 			path = LoginView;
 			sourceTree = "<group>";
@@ -243,11 +251,26 @@
 		3E8F88F52C56F9EB000EDF6C /* SingInView */ = {
 			isa = PBXGroup;
 			children = (
+				3E8F890F2C5AF5A6000EDF6C /* RegistrierenView.swift */,
 				3E8F88F62C56FA3A000EDF6C /* SIEmail.swift */,
 				3E8F88FC2C59B0C8000EDF6C /* SICode.swift */,
 				3E8F88FE2C59D9CF000EDF6C /* SIPersonID.swift */,
 			);
 			path = SingInView;
+			sourceTree = "<group>";
+		};
+		3E8F89062C5AC61E000EDF6C /* Componente */ = {
+			isa = PBXGroup;
+			children = (
+				3E60B8572C43DFDD00162C7D /* PasswortTextFielt.swift */,
+				3E60B8552C43DFC000162C7D /* FullWidthTextField.swift */,
+				3E8F890D2C5AE7AB000EDF6C /* FullWidthTextFieldAndToggle.swift */,
+				3E60B8592C43DFF300162C7D /* SocialLoginButton.swift */,
+				3E8F89072C5ACA94000EDF6C /* DescriptionWithTitle.swift */,
+				3E8F89092C5ACB04000EDF6C /* FullWidthButton.swift */,
+				3E8F890B2C5AD2E6000EDF6C /* OptionSeparator.swift */,
+			);
+			path = Componente;
 			sourceTree = "<group>";
 		};
 		3ECC27FD2C52767700DB2801 /* Calendar2 */ = {
@@ -406,8 +429,10 @@
 				3E7B044F2C4A840200606AED /* MyPlanner.swift in Sources */,
 				3E7B04482C4957BA00606AED /* DatumUndzeit.swift in Sources */,
 				3E60B86B2C447AD500162C7D /* WeekStore.swift in Sources */,
+				3E8F890E2C5AE7AB000EDF6C /* FullWidthTextFieldAndToggle.swift in Sources */,
 				3E8F88FF2C59D9CF000EDF6C /* SIPersonID.swift in Sources */,
 				3E60B8582C43DFDD00162C7D /* PasswortTextFielt.swift in Sources */,
+				3E8F890A2C5ACB04000EDF6C /* FullWidthButton.swift in Sources */,
 				3E7B04422C49568500606AED /* KalenderDesigVorlage.swift in Sources */,
 				3E7B04442C4956EF00606AED /* CalenderSheed.swift in Sources */,
 				3E60B86D2C447D6B00162C7D /* WeekValue.swift in Sources */,
@@ -417,10 +442,13 @@
 				3ECC28092C559FBC00DB2801 /* WelcomView.swift in Sources */,
 				3E7B04372C4825F000606AED /* MyCalendar.swift in Sources */,
 				3E7B04352C4821B000606AED /* TestCalender.swift in Sources */,
+				3E8F890C2C5AD2E6000EDF6C /* OptionSeparator.swift in Sources */,
 				3E7B04462C49574500606AED /* Wegzeiten.swift in Sources */,
 				3E60B85A2C43DFF300162C7D /* SocialLoginButton.swift in Sources */,
 				3ECC27FF2C52769200DB2801 /* CustomWeekHeader.swift in Sources */,
 				3E60B8282C43DF4F00162C7D /* KinderAppApp.swift in Sources */,
+				3E8F89082C5ACA94000EDF6C /* DescriptionWithTitle.swift in Sources */,
+				3E8F89102C5AF5A6000EDF6C /* RegistrierenView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

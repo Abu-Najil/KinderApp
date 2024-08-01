@@ -19,7 +19,7 @@ struct PasswortTextFielt: View {
             HStack {
                 Text("Passwort")
                     .font(.caption)
-                Spacer()
+                    .frame(maxWidth: .infinity, alignment: .leading)
             }
             .padding(.horizontal, 16)
             ZStack(alignment: .trailing){
@@ -68,7 +68,7 @@ struct PasswortTextFielt: View {
                 Label("fehlermeldung", systemImage: "exclamationmark.circle.fill")
                     .font(.caption)
                     .foregroundStyle(.red)
-                Spacer()
+                    .frame(maxWidth: .infinity, alignment: .leading)
             }
             .padding(.horizontal, 16)
             .opacity(0)

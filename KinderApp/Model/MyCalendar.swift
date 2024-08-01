@@ -174,4 +174,8 @@ extension Date {
     func dayNum() -> String {
         return self.formatted(.dateTime .day())
     }
+    
+    func dayMonthYYYY() -> String {
+        return self.formatted(.dateTime .day() .month(.wide) .year())
+    }
 }
