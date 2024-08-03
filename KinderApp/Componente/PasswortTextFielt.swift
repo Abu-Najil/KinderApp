@@ -32,7 +32,7 @@ struct PasswortTextFielt: View {
                     }
                 }
                 .padding(!isVisibility ? 17 : 16)
-                .background(.fill)
+                .background(Color(.systemFill))
                 .clipShape(RoundedRectangle(cornerSize: CGSize(width: 14, height: 10)))
                 
                 HStack {
@@ -45,8 +45,9 @@ struct PasswortTextFielt: View {
                                 .foregroundStyle(Color(.label))
                         }
                         .buttonStyle(.bordered)
-                        .controlSize(.small)
-                        .buttonBorderShape(.circle)
+                        .controlSize(.regular)
+                        //.buttonBorderShape(.circle) // IOS 17
+                        .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
                     }
                     
                     Button {
@@ -55,10 +56,11 @@ struct PasswortTextFielt: View {
                         }
                         isVisibility.toggle()
                     }label: {
-                        Image(systemName: isVisibility ? "eye.slash.fill" : "eye.fill")
+                        withAnimation(.bouncy) {
+                            Image(systemName: isVisibility ? "eye.slash.fill" : "eye.fill")
+                        }
                     }
                     .tint(Color(.label))
-                    .contentTransition(.symbolEffect(.replace))
                     .disabled(passwort.isEmpty ? true : false)
                 }
                 .padding(.trailing, 16)

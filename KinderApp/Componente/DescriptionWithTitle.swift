@@ -11,6 +11,8 @@ struct DescriptionWithTitle: View {
     
     let title : String
     let description : String
+    let icon : String
+    let iconColer : Color
     
     var body: some View {
         
@@ -20,6 +22,12 @@ struct DescriptionWithTitle: View {
                 .multilineTextAlignment(.center)
                 .foregroundStyle(Color.secondary)
         }label: {
+            Image(systemName: icon)
+                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+                .bold()
+                .font(.system(size: 50))
+                .padding(.bottom, 8)
+                .foregroundColor(iconColer)
             Text(title)
                 .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
                 .padding(.bottom, 6)
@@ -28,6 +36,6 @@ struct DescriptionWithTitle: View {
 }
 
 #Preview {
-    DescriptionWithTitle(title: "Tietel", description: "Beschreibungstext um ein forgang besser zu erläutern, damit der nutzer weiß, was man von ihm verlangt")
+    DescriptionWithTitle(title: "Tietel", description: "Beschreibungstext um ein forgang besser zu erläutern, damit der nutzer weiß, was man von ihm verlangt", icon: "at", iconColer: Color(.blue))
         .padding()
 }

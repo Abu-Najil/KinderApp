@@ -37,7 +37,7 @@ struct FullWidthTextFieldAndToggle: View {
                         .keyboardType(.emailAddress)
                 }
                 .padding(10)
-                .background(.fill)
+                .background(Color(.systemFill))
                 .clipShape(RoundedRectangle(cornerSize: CGSize(width: 14, height: 10)))
                 
                 // MARK: Button um den text zu Löschen
@@ -50,7 +50,8 @@ struct FullWidthTextFieldAndToggle: View {
                         }
                         .buttonStyle(.bordered)
                         .controlSize(.small)
-                        .buttonBorderShape(.circle)
+                        //.buttonBorderShape(.circle) // IOS 17
+                        .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
                         .padding(.trailing, 8)
                 }
             }

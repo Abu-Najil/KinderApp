@@ -20,14 +20,17 @@ struct SIPersonID: View {
             
             DescriptionWithTitle(
                 title: "Gib uns Paar persönliche Daten von dir",
-                description: "Wier Schicken dir dann ein Bestätigungscode an deiner Email")
-                .padding(.top, 16)
+                description: "Wier Schicken dir dann ein Bestätigungscode an deiner Email",
+                 icon: "person.text.rectangle.fill",
+                iconColer: Color(.purple))
+            .padding(.top, 16)
             
             FullWidthTextField(
                 title: "Name",
                 placeholder: "Name",
                 text: $name)
-                .padding(.top, 24)
+            .keyboardType(.namePhonePad)
+            .padding(.top, 24)
             
             // TODO: Umbenenen
             ExtractedView(
@@ -74,7 +77,6 @@ struct SIPersonID: View {
 #Preview {
     NavigationStack{
         SIPersonID()
-            .navigationTitle("Registrieren")
     }
 }
 
@@ -107,8 +109,8 @@ struct ExtractedView: View {
             .tint(Color(.label))
             .buttonBorderShape(.roundedRectangle(radius: 14))
             .background(RoundedRectangle(cornerSize: CGSize(width: 14, height: 10))
-                .foregroundStyle(.fill)
-        )
+                .foregroundStyle(Color(.systemFill))
+            )
         }
     }
 }

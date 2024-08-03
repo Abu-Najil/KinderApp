@@ -27,9 +27,8 @@ struct FullWidthTextField: View {
             ZStack(alignment: .trailing) {
                 // MARK: Textfeld und Platzhalter
                 TextField(placeholder, text: $text)
-                    .keyboardType(.emailAddress)
                     .padding()
-                    .background(.fill)
+                    .background(Color(.systemFill))
                     .clipShape(RoundedRectangle(cornerSize: CGSize(width: 14, height: 10)))
                 
                 // MARK: Button um den text zu Löschen
@@ -42,7 +41,8 @@ struct FullWidthTextField: View {
                         }
                         .buttonStyle(.bordered)
                         .controlSize(.small)
-                        .buttonBorderShape(.circle)
+                        //.buttonBorderShape(.circle) // IOS 17
+                        .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
                         .padding(.trailing, 8)
                 }
             }

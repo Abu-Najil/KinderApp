@@ -9,72 +9,91 @@ import SwiftUI
 
 struct RegistrierenView: View {
     
+    @Binding var registrierungIsOn : Bool
     
     @State private var selection = 0
+    @State private var isPresentingConfirm = false
     
     var body: some View {
-        VStack {
-            TabView(selection: $selection) {
-                withAnimation {
-                    SIEmail(selection: $selection)
-                        .tag(0)
-                }
-                
-                withAnimation {
-                    SICode(selection: $selection)
-                        .tag(1)
-                }
+        NavigationStack {
+            VStack {
+                TabView(selection: $selection) {
+                    withAnimation {
+                        SIEmail(selection: $selection)
+                            .tag(0)
+                    }
                     
-                SIPersonID()
-                    .tag(2)
-                
-                Text("View 4").tag(3)
+                    withAnimation {
+                        SICode(selection: $selection)
+                            .tag(1)
+                    }
+                    
+                    SIPersonID()
+                        .tag(2)
+                    
+                    Text("View 4").tag(3)
+                }
+                .tabViewStyle(.page(indexDisplayMode: .never))
+                .onAppear {
+                    UIScrollView.appearance().isScrollEnabled = false
+                }
             }
-            .tabViewStyle(.page(indexDisplayMode: .never))
-            .onAppear {
-                UIScrollView.appearance().isScrollEnabled = false
-            }
-        }
-        .navigationTitle("Registrieren")
-        .navigationBarTitleDisplayMode(.large)
-        .scrollDisabled(true)
-        .toolbar {
-            ToolbarItem(placement: .automatic) {
-                if selection > 0 {
-                    Button {
-                        withAnimation {
+            .navigationTitle("Registrieren")
+            .navigationBarTitleDisplayMode(.inline)
+            .scrollDisabled(true)
+            .toolbar {
+                ToolbarItem(placement: .navigation) {
+                    if selection > 0 {
+                        Button {
                             withAnimation {
-                                selection -= 1
+                                withAnimation {
+                                    selection -= 1
+                                }
+                            }
+                        }label: {
+                            HStack{
+                                Image(systemName: "chevron.left")
+                                if selection == 1{
+                                    Text("Email")
+                                }
+                                if selection == 2 {
+                                    Text("Code")
+                                }
+                                if selection == 3 {
+                                    Text("Persönliches")
+                                }
                             }
                         }
+                    }
+                }
+                
+                ToolbarItem(placement: .automatic) {
+                    Button {
+                        isPresentingConfirm = true
                     }label: {
-                        HStack{
-                            Image(systemName: "chevron.left")
-                            if selection == 1{
-                                Text("Email")
-                            }
-                            if selection == 2 {
-                                Text("Code")
-                            }
-                            if selection == 3 {
-                                Text("Persönliches")
-                            }
-                        }
+                        Image(systemName: "multiply")
                     }
                     .buttonStyle(.bordered)
-                    .controlSize(.mini)
-                    //.buttonBorderShape()
+                    .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
+                }
+                
+                ToolbarItem(placement: .bottomBar) {
+                    HStack(spacing: 0){
+                        Text("Hast du bereits ein Konto?")
+                        NavigationLink(destination: EmptyView()){
+                            Text("Anmelden")
+                        }
+                    }
+                    .font(.footnote)
                 }
             }
-            
-            ToolbarItem(placement: .bottomBar) {
-                HStack(spacing: 0){
-                    Text("Hast du bereits ein Konto?")
-                    NavigationLink(destination: LoginView()){
-                        Text("Anmelden")
-                    }
-                }
-                .font(.footnote)
+            .confirmationDialog("Are you sure?",
+              isPresented: $isPresentingConfirm) {
+              Button("Schließen", role: .destructive) {
+                  registrierungIsOn = false
+              }
+            } message: {
+              Text("Wenn Sie die Registrirung Schließen gehen alle eingetragenen Daten verloren")
             }
         }
     }
@@ -82,6 +101,6 @@ struct RegistrierenView: View {
 
 #Preview {
     NavigationStack {
-        RegistrierenView()
+        RegistrierenView(registrierungIsOn: .constant(false))
     }
 }

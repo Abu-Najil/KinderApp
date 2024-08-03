@@ -21,13 +21,16 @@ struct SIEmail: View {
             VStack(spacing: 16) {
                 DescriptionWithTitle(
                     title: "Gib eine gültige E-mail ein",
-                    description: "Wier Schicken dir dann ein Bestätigungscode an deiner Emailadresse")
-                    .padding(.top, 8)
+                    description: "Wier Schicken dir dann ein Bestätigungscode an deiner Emailadresse",
+                    icon: "at",
+                    iconColer: Color(.blue))
+                .padding(.top, 8)
                 
                 FullWidthTextField(
                     title: "E-Mail", 
                     placeholder: "E-Mail", text: $email)
-                    .padding(.top, 14)
+                .keyboardType(.emailAddress)
+                .padding(.top, 14)
                 
                 FullWidthButton(
                     buttonText: "Weiter"){
@@ -39,29 +42,36 @@ struct SIEmail: View {
                 .disabled(email.isEmpty)
                 
                 OptionSeparator()
-                    .padding(.vertical, 8)
+                .padding(.vertical, 8)
                 
+                // Apple
                 SocialLoginButton(
                     logo: "appleLogo",
                     textLabel: "mit Apple registrieren",
                     backgroundcolor: .appleBackround,
-                    textColor: .white)
-                
+                    textColor: .white){
+                        
+                    }
+                // Googlr
                 SocialLoginButton(
                     logo: "googleLogo",
                     textLabel: "mit Google registrieren",
                     backgroundcolor: .googleBackround,
-                    textColor: Color(.label))
-                
+                    textColor: Color(.label)){
+                        
+                    }
+                // Facebook
                 SocialLoginButton(
                     logo: "facebookLogo",
                     textLabel: "mit Facebook registrieren",
                     backgroundcolor: .facebookBackround,
-                    textColor: .white)
+                    textColor: .white){
+                        
+                    }
             }
         }
         .padding(.horizontal)
-        .navigationBarTitleDisplayMode(.large)
+        .navigationBarTitleDisplayMode(.inline)
         .scrollDisabled(true)
     }
 }

@@ -23,7 +23,9 @@ struct SICode: View {
             
             DescriptionWithTitle(
                 title: "Authentifizierungscode",
-                description: "Wir haben dir auf deiner Email einen 5 stelligen Authentifizierungscode zugeschickt. Trage den Code unten ein um zu bestätigen das es deine Email ist")
+                description: "Wir haben dir auf deiner Email einen 5 stelligen Authentifizierungscode zugeschickt. Trage den Code unten ein um zu bestätigen das es deine Email ist",
+                icon: "touchid",
+                iconColer: Color(.red))
                 .padding(.top, 16)
             
             Text("Bestätigungscode")
@@ -48,13 +50,13 @@ struct SICode: View {
         }
         .padding(.horizontal)
         .ignoresSafeArea(.keyboard)
+        
     }
 }
 
 #Preview {
     NavigationStack {
         SICode(selection: .constant(1))
-            .navigationTitle("Regestrieren")
     }
 }
 
@@ -70,7 +72,7 @@ struct Code: View {
                        .keyboardType(.numberPad)
                        .multilineTextAlignment(.center)
                        .frame(width: 55, height: 55)
-                       .background(.fill)
+                       .background(Color(.systemFill))
                        .clipShape(RoundedRectangle(cornerRadius: 5))
                        .overlay(
                            RoundedRectangle(cornerRadius: 5)
@@ -100,9 +102,6 @@ struct Code: View {
                            }
                        }
                }
-           }
-           .onAppear {
-               focusedIndex = 0
            }
        }
        

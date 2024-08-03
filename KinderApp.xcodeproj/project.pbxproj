@@ -39,6 +39,7 @@
 		3E8F890C2C5AD2E6000EDF6C /* OptionSeparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8F890B2C5AD2E6000EDF6C /* OptionSeparator.swift */; };
 		3E8F890E2C5AE7AB000EDF6C /* FullWidthTextFieldAndToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8F890D2C5AE7AB000EDF6C /* FullWidthTextFieldAndToggle.swift */; };
 		3E8F89102C5AF5A6000EDF6C /* RegistrierenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8F890F2C5AF5A6000EDF6C /* RegistrierenView.swift */; };
+		3E8F89162C5DA2AF000EDF6C /* TestSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8F89152C5DA2AF000EDF6C /* TestSwiftUIView.swift */; };
 		3ECC27FF2C52769200DB2801 /* CustomWeekHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECC27FE2C52769200DB2801 /* CustomWeekHeader.swift */; };
 		3ECC28092C559FBC00DB2801 /* WelcomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECC28082C559FBC00DB2801 /* WelcomView.swift */; };
 /* End PBXBuildFile section */
@@ -97,6 +98,7 @@
 		3E8F890B2C5AD2E6000EDF6C /* OptionSeparator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionSeparator.swift; sourceTree = "<group>"; };
 		3E8F890D2C5AE7AB000EDF6C /* FullWidthTextFieldAndToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullWidthTextFieldAndToggle.swift; sourceTree = "<group>"; };
 		3E8F890F2C5AF5A6000EDF6C /* RegistrierenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrierenView.swift; sourceTree = "<group>"; };
+		3E8F89152C5DA2AF000EDF6C /* TestSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSwiftUIView.swift; sourceTree = "<group>"; };
 		3ECC27FE2C52769200DB2801 /* CustomWeekHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomWeekHeader.swift; sourceTree = "<group>"; };
 		3ECC28082C559FBC00DB2801 /* WelcomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -193,6 +195,7 @@
 				3ECC28072C559F9600DB2801 /* WelcomView */,
 				3E60B8522C43DF8800162C7D /* LoginView */,
 				3E8F88F52C56F9EB000EDF6C /* SingInView */,
+				3E8F89152C5DA2AF000EDF6C /* TestSwiftUIView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -265,9 +268,9 @@
 				3E60B8572C43DFDD00162C7D /* PasswortTextFielt.swift */,
 				3E60B8552C43DFC000162C7D /* FullWidthTextField.swift */,
 				3E8F890D2C5AE7AB000EDF6C /* FullWidthTextFieldAndToggle.swift */,
+				3E8F89092C5ACB04000EDF6C /* FullWidthButton.swift */,
 				3E60B8592C43DFF300162C7D /* SocialLoginButton.swift */,
 				3E8F89072C5ACA94000EDF6C /* DescriptionWithTitle.swift */,
-				3E8F89092C5ACB04000EDF6C /* FullWidthButton.swift */,
 				3E8F890B2C5AD2E6000EDF6C /* OptionSeparator.swift */,
 			);
 			path = Componente;
@@ -444,6 +447,7 @@
 				3E7B04352C4821B000606AED /* TestCalender.swift in Sources */,
 				3E8F890C2C5AD2E6000EDF6C /* OptionSeparator.swift in Sources */,
 				3E7B04462C49574500606AED /* Wegzeiten.swift in Sources */,
+				3E8F89162C5DA2AF000EDF6C /* TestSwiftUIView.swift in Sources */,
 				3E60B85A2C43DFF300162C7D /* SocialLoginButton.swift in Sources */,
 				3ECC27FF2C52769200DB2801 /* CustomWeekHeader.swift in Sources */,
 				3E60B8282C43DF4F00162C7D /* KinderAppApp.swift in Sources */,
@@ -549,7 +553,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -606,7 +610,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;

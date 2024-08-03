@@ -13,13 +13,13 @@ struct SocialLoginButton: View {
     let textLabel : String
     let backgroundcolor : Color
     let textColor: Color
+    var action: () -> Void
     
     var body: some View {
         
         VStack {
-            Button {
-                
-            }label: {
+            
+            Button(action: action){
                 ZStack{
                     HStack{
                         Image(logo)
@@ -35,7 +35,8 @@ struct SocialLoginButton: View {
             }
             .buttonStyle(.borderedProminent)
             .buttonBorderShape(.roundedRectangle(radius: 14))
-            .controlSize(.extraLarge)
+            //.controlSize(.extraLarge) // .extraLarge IOS 17
+            .controlSize(.large)
             .tint(backgroundcolor)
         }
     }
@@ -43,11 +44,13 @@ struct SocialLoginButton: View {
 
 #Preview {
     VStack{
-        SocialLoginButton(logo: "appleLogo", textLabel: "mit Apple anmelden", backgroundcolor: .appleBackround, textColor: .white)
+        SocialLoginButton(logo: "appleLogo", textLabel: "Musster Button", backgroundcolor: Color(.systemGray), textColor: .white, action: {})
         
-        SocialLoginButton(logo: "googleLogo", textLabel: "mit Google anmelden", backgroundcolor: .googleBackround, textColor: Color(.label))
+        SocialLoginButton(logo: "appleLogo", textLabel: "mit Apple anmelden", backgroundcolor: .appleBackround, textColor: .white, action: {})
         
-        SocialLoginButton(logo: "facebookLogo", textLabel: "mit Facebook anmelden", backgroundcolor: .facebookBackround, textColor: .white)
+        SocialLoginButton(logo: "googleLogo", textLabel: "mit Google anmelden", backgroundcolor: .googleBackround, textColor: Color(.label), action: {})
+        
+        SocialLoginButton(logo: "facebookLogo", textLabel: "mit Facebook anmelden", backgroundcolor: .facebookBackround, textColor: .white, action: {})
     }
     .padding()
 }

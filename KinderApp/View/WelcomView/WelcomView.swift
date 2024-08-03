@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct WelcomView: View {
+    
+    @State private var registrierungIsOn = false
+    @State private var LoginIsOn = false
+    
     var body: some View {
         NavigationStack{
             VStack{
@@ -15,7 +19,7 @@ struct WelcomView: View {
                     VStack(spacing: 16){
                         ZStack {
                             Rectangle()
-                                .foregroundStyle(.fill)
+                                .foregroundStyle(Color(.systemFill))
                             ZStack{
                                 Capsule()
                                     .frame(width: 60, height: 125)
@@ -43,24 +47,33 @@ struct WelcomView: View {
                 }
                 .tabViewStyle(.page)
                 .indexViewStyle(.page(backgroundDisplayMode: .always))
-                
-                 NavigationLink( destination: RegistrierenView()){
-                    Text("Registrieren")
-                        .frame(maxWidth: .infinity)
-                }
+
+                FullWidthButton(buttonText: "Registrieren", action: {
+                    LoginIsOn = false
+                    registrierungIsOn = true
+                })
                 .buttonStyle(.borderedProminent)
                 .controlSize(.large)
                 .buttonBorderShape(.roundedRectangle(radius: 14))
                 .padding(.horizontal)
                 .padding(.top, 8)
                 
+                .fullScreenCover(isPresented: $registrierungIsOn, content: {
+                    RegistrierenView(registrierungIsOn: $registrierungIsOn)
+                })
+                
+                .fullScreenCover(isPresented: $LoginIsOn, content: {
+                    LoginView(loginIsOn: $LoginIsOn)
+                })
+                
             }
             .toolbar {
                 ToolbarItem(placement: .bottomBar) {
                     HStack(spacing: 0){
-                        Text("Noch kein Konto?")
-                        NavigationLink(destination: LoginView()) {
-                            Text("Anmelden")
+                        Text("Du hast bereits ein Konto?")
+                        Button("Anmelden"){
+                            registrierungIsOn = false
+                            LoginIsOn = true
                         }
                     }
                     .font(.footnote)
