@@ -24,7 +24,6 @@ struct DescriptionWithTitle: View {
         }label: {
             Image(systemName: icon)
                 .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
-                .bold()
                 .font(.system(size: 50))
                 .padding(.bottom, 8)
                 .foregroundColor(iconColer)

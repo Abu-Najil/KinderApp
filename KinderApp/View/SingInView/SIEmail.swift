@@ -23,7 +23,7 @@ struct SIEmail: View {
                     title: "Gib eine gültige E-mail ein",
                     description: "Wier Schicken dir dann ein Bestätigungscode an deiner Emailadresse",
                     icon: "at",
-                    iconColer: Color(.blue))
+                    iconColer: Color(.systemBlue))
                 .padding(.top, 8)
                 
                 FullWidthTextField(
@@ -73,6 +73,17 @@ struct SIEmail: View {
         .padding(.horizontal)
         .navigationBarTitleDisplayMode(.inline)
         .scrollDisabled(true)
+        .overlay(alignment: .bottom){
+            HStack(spacing: 0){
+                Text("Hast du bereits ein Konto?")
+                Spacer().frame(width: 8)
+                NavigationLink(destination: EmptyView()){
+                    Text("Anmelden")
+                }
+            }
+            .font(.footnote)
+        }
+        
     }
 }
 

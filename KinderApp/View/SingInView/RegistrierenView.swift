@@ -18,20 +18,18 @@ struct RegistrierenView: View {
         NavigationStack {
             VStack {
                 TabView(selection: $selection) {
-                    withAnimation {
-                        SIEmail(selection: $selection)
-                            .tag(0)
-                    }
                     
-                    withAnimation {
-                        SICode(selection: $selection)
-                            .tag(1)
-                    }
+                    SIEmail(selection: $selection)
+                        .tag(0)
+                    
+                    SICode(selection: $selection)
+                        .tag(1)
                     
                     SIPersonID()
                         .tag(2)
                     
-                    Text("View 4").tag(3)
+                    SIPasswort()
+                        .tag(3)
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
                 .onAppear {
@@ -76,24 +74,14 @@ struct RegistrierenView: View {
                     .buttonStyle(.bordered)
                     .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
                 }
-                
-                ToolbarItem(placement: .bottomBar) {
-                    HStack(spacing: 0){
-                        Text("Hast du bereits ein Konto?")
-                        NavigationLink(destination: EmptyView()){
-                            Text("Anmelden")
-                        }
-                    }
-                    .font(.footnote)
-                }
             }
             .confirmationDialog("Are you sure?",
-              isPresented: $isPresentingConfirm) {
-              Button("Schließen", role: .destructive) {
-                  registrierungIsOn = false
-              }
+                                isPresented: $isPresentingConfirm) {
+                Button("Schließen", role: .destructive) {
+                    registrierungIsOn = false
+                }
             } message: {
-              Text("Wenn Sie die Registrirung Schließen gehen alle eingetragenen Daten verloren")
+                Text("Wenn Sie die Registrirung Schließen gehen alle eingetragenen Daten verloren")
             }
         }
     }

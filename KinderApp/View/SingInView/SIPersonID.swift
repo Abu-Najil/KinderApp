@@ -16,13 +16,13 @@ struct SIPersonID: View {
     @State private var toggleText = "TT.MM.JJJJ"
     
     var body: some View {
-        VStack(spacing: 8) {
+        ScrollView{
             
             DescriptionWithTitle(
                 title: "Gib uns Paar persönliche Daten von dir",
                 description: "Wier Schicken dir dann ein Bestätigungscode an deiner Email",
                  icon: "person.text.rectangle.fill",
-                iconColer: Color(.purple))
+                iconColer: Color(.systemYellow))
             .padding(.top, 16)
             
             FullWidthTextField(
@@ -59,17 +59,19 @@ struct SIPersonID: View {
                 .padding(.bottom)
             }
             
-            // TODO: Logig einführen
-            FullWidthButton(buttonText: "Weiter") {
-                // Code
-            }
-            .disabled(/*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
-            
         }
         .padding(.horizontal)
         .ignoresSafeArea(.keyboard)
         .onAppear {
             UIScrollView.appearance().isScrollEnabled = true
+        }
+        .safeAreaInset(edge: .bottom){
+            // TODO: Logig einführen
+            FullWidthButton(buttonText: "Weiter") {
+                // Code
+            }
+            .padding()
+            .disabled(/*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
         }
     }
 }
@@ -77,6 +79,8 @@ struct SIPersonID: View {
 #Preview {
     NavigationStack{
         SIPersonID()
+            .navigationTitle("Registrieren")
+            .navigationBarTitleDisplayMode(.inline)
     }
 }
 

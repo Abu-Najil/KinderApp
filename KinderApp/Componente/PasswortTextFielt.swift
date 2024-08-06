@@ -45,7 +45,7 @@ struct PasswortTextFielt: View {
                                 .foregroundStyle(Color(.label))
                         }
                         .buttonStyle(.bordered)
-                        .controlSize(.regular)
+                        .controlSize(.small)
                         //.buttonBorderShape(.circle) // IOS 17
                         .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
                     }
@@ -61,6 +61,7 @@ struct PasswortTextFielt: View {
                         }
                     }
                     .tint(Color(.label))
+                    .controlSize(.large)
                     .disabled(passwort.isEmpty ? true : false)
                 }
                 .padding(.trailing, 16)

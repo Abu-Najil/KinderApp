@@ -16,17 +16,17 @@ struct SICode: View {
     @Binding var selection : Int
     @State private var isNavigation = false
     @FocusState private var focusedField: Field?
-    @State private var digits: [String] = ["", "", "", "", ""]
+    @State private var digits: [String] = ["", "", "", ""]
     
     var body: some View {
-        VStack(spacing: 24){
+        ScrollView {
             
             DescriptionWithTitle(
                 title: "Authentifizierungscode",
                 description: "Wir haben dir auf deiner Email einen 5 stelligen Authentifizierungscode zugeschickt. Trage den Code unten ein um zu bestätigen das es deine Email ist",
                 icon: "touchid",
-                iconColer: Color(.red))
-                .padding(.top, 16)
+                iconColer: Color(.systemRed))
+            .padding(.vertical)
             
             Text("Bestätigungscode")
                 .bold()
@@ -37,9 +37,11 @@ struct SICode: View {
             NewCodeButton(
                 buttonText: "Neuen Code senden") {
             }
+                .padding(.vertical)
             
-            Spacer()
-            
+        }
+        .padding(.horizontal)
+        .safeAreaInset(edge: .bottom){
             FullWidthButton(
                 buttonText: "Weiter") {
                 // TODO: Checkt ob der Code richtig ist ind navigirt zur nöchsten View
@@ -47,16 +49,16 @@ struct SICode: View {
                     selection += 1
                 }
             }
+                .padding()
         }
-        .padding(.horizontal)
-        .ignoresSafeArea(.keyboard)
-        
     }
 }
 
 #Preview {
     NavigationStack {
         SICode(selection: .constant(1))
+            .navigationTitle("Registrieren")
+            .navigationBarTitleDisplayMode(.inline)
     }
 }
 
@@ -76,7 +78,7 @@ struct Code: View {
                        .clipShape(RoundedRectangle(cornerRadius: 5))
                        .overlay(
                            RoundedRectangle(cornerRadius: 5)
-                               .stroke(Color(.blue), lineWidth: focusedIndex == index ? 2 : 0)
+                               .stroke(Color(.systemBlue), lineWidth: focusedIndex == index ? 2 : 0)
                        )
                        .focused($focusedIndex, equals: index)
                        .disabled(index > 0 && digits[index - 1].isEmpty)
