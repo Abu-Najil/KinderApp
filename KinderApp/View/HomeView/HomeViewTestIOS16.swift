@@ -20,7 +20,7 @@ struct HomeViewTestIOS16: View {
                 HStack(spacing: 8) {
                     ForEach(1...anzhalView, id: \.self) { n in
                         RoundedRectangle(cornerRadius: 12)
-                            .frame(width: geo.size.width - 32)
+                            .frame(width: geo.size.width / 1 - 32)
                             .foregroundStyle(.blue)
                             .overlay {
                                 Text("IOS 16 / View \(n)")
@@ -30,9 +30,9 @@ struct HomeViewTestIOS16: View {
                 }
                 .padding(.horizontal)
                 .offset(x: self.dragOffset + CGFloat(self.currentIndex) * -(geo.size.width - 24))
-                .animation(.linear(duration: 5), value: currentIndex)
+                .animation(.linear(duration: 1), value: currentIndex)
                 .transaction{
-                    $0.animation = .easeOut(duration: 0.35)
+                    $0.animation = .smooth(duration: 0.4)
                 }
                 .gesture(
                     DragGesture()
