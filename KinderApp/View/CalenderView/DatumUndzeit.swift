@@ -29,14 +29,18 @@ struct DatumUndzeit: View {
             Spacer()
             Group{
                 Button(dateFormatter.string(from: datumBeginn)){
-                    isOn.toggle()
-                    isOnTime = false
+                    withAnimation(.spring(duration: 0.5 , bounce: 0.0)) {
+                        isOn.toggle()
+                        isOnTime = false
+                    }
                 }
                 .foregroundStyle(isOn ? .blue : Color(uiColor: .label))
                 
                 Button(dateFormatterTime.string(from: datumBeginn)){
-                    isOnTime.toggle()
-                    isOn = false
+                    withAnimation(.bouncy(extraBounce: 2.0)){
+                        isOnTime.toggle()
+                        isOn = false
+                    }
                 }
                 .foregroundStyle(isOnTime ? .blue : Color(uiColor: .label))
             }

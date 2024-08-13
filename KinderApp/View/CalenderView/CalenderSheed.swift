@@ -9,6 +9,8 @@ import SwiftUI
 
 struct CalenderSheed: View {
     
+    @FocusState private var isTextFieldFocused: Bool
+    
     @State private var titel = ""
     @State private var standort = ""
     @State private var wegzeitAuswahl = Wegzeiten.Ohne
@@ -43,7 +45,23 @@ struct CalenderSheed: View {
                         
                         Spacer().frame(width: 18)
                         TextField("Titel", text: $titel)
-                    }                    
+                            .focused($isTextFieldFocused)
+                            .overlay(alignment: .trailing) {
+                                Button {
+                                    titel = ""
+                                }label: {
+                                    Image(systemName: "multiply")
+                                        .foregroundStyle(Color(.darkText))
+                                        .font(.footnote)
+                                }
+                                .buttonStyle(.bordered)
+                                .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
+                                .controlSize(.mini)
+                                .tint(Color(.systemGray))
+                                .opacity(isTextFieldFocused && !titel.isEmpty ? 1 : 0)
+                            }
+                    }
+                    
                     TextField("Standort", text: $standort)
                 }
                 Section {

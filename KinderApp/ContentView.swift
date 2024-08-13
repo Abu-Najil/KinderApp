@@ -14,7 +14,13 @@ struct ContentView: View {
     var body: some View {
         
         //WelcomView()
-        HomeViewTestIOS16()
+        TabView{
+            KalenderDesigVorlage()
+                .tabItem { Label("Kalender", systemImage: "calendar") }
+            
+            HomeViewTestIOS16()
+                .tabItem { Label("Kalender", systemImage: "house.fill") }
+        }
     }
 }
 

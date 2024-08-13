@@ -13,6 +13,8 @@ struct PasswortTextFielt: View {
     @Binding var isVisibility : Bool
     @State private var isAnimating = false
     
+    @FocusState private var isTextFieldFocused: Bool
+    
     var body: some View {
         VStack(spacing: 8) {
             
@@ -31,12 +33,13 @@ struct PasswortTextFielt: View {
                         SecureField("Passwort", text: $passwort)
                     }
                 }
+                .focused($isTextFieldFocused)
                 .padding(!isVisibility ? 17 : 16)
                 .background(Color(.systemFill))
                 .clipShape(RoundedRectangle(cornerSize: CGSize(width: 14, height: 10)))
                 
                 HStack {
-                    if !passwort.isEmpty{
+                    if !passwort.isEmpty && isTextFieldFocused{
                         Button{
                             passwort = ""
                             isVisibility = false

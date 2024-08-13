@@ -12,6 +12,8 @@ struct FullWidthTextField: View {
     var title : String
     var placeholder : String
     
+    @FocusState private var isTextFieldFocused: Bool
+    
     @Binding var text: String
     
     var body: some View {
@@ -27,12 +29,13 @@ struct FullWidthTextField: View {
             ZStack(alignment: .trailing) {
                 // MARK: Textfeld und Platzhalter
                 TextField(placeholder, text: $text)
+                    .focused($isTextFieldFocused)
                     .padding()
                     .background(Color(.systemFill))
                     .clipShape(RoundedRectangle(cornerSize: CGSize(width: 14, height: 10)))
                 
                 // MARK: Button um den text zu Löschen
-                if !text.isEmpty {
+                if !text.isEmpty && isTextFieldFocused {
                         Button{
                             text = ""
                         }label: {
